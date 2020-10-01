@@ -10,10 +10,10 @@ bibliography: references.bib
 
 ```{r include=FALSE}
 suppressPackageStartupMessages({
-  if (!requireNamespace("tidyverse")) install.packages("tidyverse")
-  if (!requireNamespace("MendelianRandomization")) install.packages("MendelianRandomization")
-  if (!requireNamespace("MVMR")) remotes::install_github("wspiller/mvmr")
-  if (!requireNamespace("Statamarkdown")) remotes::install_github("hemken/statamarkdown")  
+  if (!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")
+  if (!requireNamespace("MendelianRandomization", quietly = TRUE)) install.packages("MendelianRandomization")
+  if (!requireNamespace("MVMR", quietly = TRUE)) remotes::install_github("wspiller/mvmr")
+  if (!requireNamespace("Statamarkdown", quietly = TRUE)) remotes::install_github("hemken/statamarkdown")  
 })
 ```
 
@@ -169,7 +169,7 @@ mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1, ///
 ## R session information for reproducibility
 
 ```{r}
-if (!requireNamespace("sessioninfo")) install.packages("sessioninfo")
+if (!requireNamespace("sessioninfo", quietly = TRUE)) install.packages("sessioninfo")
 sessioninfo::session_info()
 ```
 

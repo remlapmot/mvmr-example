@@ -8,10 +8,6 @@ output:
 bibliography: references.bib 
 ---
 
-<!-- custom-reference.docx created from pandoc with, at command line -->
-<!-- pandoc -o custom-reference.docx --print-default-data-file reference.docx -->
-<!-- then edit Normal and Verbatim Char Styles -->
-
 ```{r include=FALSE}
 suppressPackageStartupMessages({
   if (!requireNamespace("tidyverse")) install.packages("tidyverse")

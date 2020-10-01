@@ -1,0 +1,180 @@
+---
+# title: "MVMR example for Supplementary Material"
+# author: "Tom Palmer"
+# date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  word_document:
+    reference_docx: "custom-reference.docx"
+bibliography: references.bib 
+---
+
+<!-- custom-reference.docx created from pandoc with, at command line -->
+<!-- pandoc -o custom-reference.docx --print-default-data-file reference.docx -->
+<!-- then edit Normal and Verbatim Char Styles -->
+
+```{r include=FALSE}
+suppressPackageStartupMessages({
+  if (!requireNamespace("tidyverse")) install.packages("tidyverse")
+  if (!requireNamespace("MendelianRandomization")) install.packages("MendelianRandomization")
+  if (!requireNamespace("MVMR")) remotes::install_github("wspiller/mvmr")
+  if (!requireNamespace("Statamarkdown")) remotes::install_github("hemken/statamarkdown")  
+})
+```
+
+# Example R and Stata code to perform a Multivariable Mendelian randomization (MVMR) analysis
+
+## R code
+
+* Read in the data
+
+```{r}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(haven)
+})
+dat <- read_dta("https://raw.github.com/remlapmot/mrrobust/master/dodata.dta")
+dat <- dat %>% filter(ldlcp2 < 1e-8)
+```
+
+### Example code using the MendelianRandomization package
+
+* Install the package and load it into memory
+
+```{r}
+# install.packages("MendelianRandomization") # uncomment on first run
+library(MendelianRandomization)
+```
+
+* Convert our data frame to the required class
+
+```{r}
+datfmt <- mr_mvinput(
+  bx = as.matrix(cbind(dat$ldlcbeta, dat$hdlcbeta, dat$tgbeta)),
+  bxse = as.matrix(cbind(dat$ldlcse, dat$hdlcse, dat$tgse)),
+  by = dat$chdbeta,
+  byse = dat$chdse,
+  exposure = "exposure",
+  outcome = "outcome",
+  snps = "snp",
+  effect_allele = dat$a1,
+  other_allele = dat$a2,
+  eaf = NA
+)
+```
+
+* Fit an MVMR/MVIVW model
+
+```{r}
+mvivwfit <- mr_mvivw(datfmt)
+mvivwfit
+```
+
+* Fit an MVMR-Egger model
+
+```{r}
+mvmreggerfit <- mr_mvegger(datfmt)
+mvmreggerfit
+```
+
+### Example code using the MVMR package
+
+* Install the package and load it into memory
+
+```{r}
+# remotes::install_github("wspiller/mvmr") # uncomment on first run
+library(MVMR)
+```
+
+* Create a data object of the required structure
+
+```{r}
+r_input <- format_mvmr(
+  BXGs = dat[,c("ldlcbeta","hdlcbeta","tgbeta")],
+  BYG = dat$chdbeta,
+  seBXGs = dat[,c("ldlcse","hdlcse","tgse")],
+  seBYG = dat$chdse,
+  RSID = dat$rsid
+)
+```
+
+* Fit an MVMR model
+
+```{r}
+mvmrfit <- ivw_mvmr(r_input)
+```
+
+* Heterogeneity statistic
+
+```{r}
+strength_mvmr(r_input)
+```
+
+## Stata code
+
+* Load the Statamarkdown package to enable Stata code chunks in an R Markdown file
+
+```{r}
+# remotes::install_github("hemken/statamarkdown") # uncomment on first run
+library(Statamarkdown)
+```
+
+* Read in the data and create an indicator variable to select observations with *p*-value between the genotype and LDL-C < 10<sup>-8</sup>
+
+```{stata, collectcode=TRUE}
+use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear
+gen byte sel1 = (ldlcp2 < 1e-8)
+```
+
+### Example code using the mrrobust package
+
+* Install the mrrobust package using the github package
+
+```{stata results=FALSE}
+net install github, from("https://haghish.github.io/github/") replace
+gitget mrrobust // output suppressed
+```
+
+* Fit and MVMR model with phenotypes LDL-c and HDL-c [@burgess-aje-2015].
+```{stata}
+mvmr chdbeta ldlcbeta hdlcbeta [aw=1/(chdse^2)] if sel1==1
+```
+
+* Additionally include a third phenotype -- triglycerides.
+```{stata}
+mvmr chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1
+```
+
+* Report the Q<sub>A</sub> statistic for instrument validity and the conditional 
+F-statistics for instrument strength for each phenotype [@sanderson-ije-2019; 
+@sanderson-biorxiv-2020].
+```{stata}
+mvmr chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1, ///
+	gxse(ldlcse hdlcse tgse)
+```
+
+* Fit an MVMR-Egger regression [@rees-statsmed-2017], orienting the model with 
+respect to the first phenotype in the main *varlist*.
+```{stata}
+mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1
+```
+
+We can also orient the model with respect to HDL-C.
+```{stata}
+mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1, ///
+	orient(2)
+```
+
+Or we can orient the model with respect to triglycerides.
+```{stata}
+mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1, ///
+	orient(3)
+```
+
+## R session information for reproducibility
+
+```{r}
+if (!requireNamespace("sessioninfo")) install.packages("sessioninfo")
+sessioninfo::session_info()
+```
+
+## References

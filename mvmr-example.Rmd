@@ -3,9 +3,11 @@ title: "MR example for Supplementary Material"
 # author: "Tom Palmer"
 # date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  html_document:
+    toc: true
+    toc_float: true
   word_document:
     reference_docx: "custom-reference.docx"
-  html_document: default
 bibliography: references.bib 
 ---
 

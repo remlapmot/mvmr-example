@@ -129,8 +129,9 @@ gen byte sel1 = (ldlcp2 < 1e-8)
 * Install the mrrobust package using the github package
 
 ```{stata results=FALSE}
+// output suppressed
 net install github, from("https://haghish.github.io/github/") replace
-gitget mrrobust // output suppressed
+gitget mrrobust
 ```
 
 * Fit and MVMR model with phenotypes LDL-c and HDL-c [@burgess-aje-2015].

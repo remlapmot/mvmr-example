@@ -20,7 +20,7 @@ suppressPackageStartupMessages({
 })
 ```
 
-# Example R and Stata code to perform a Multivariable Mendelian randomization (MVMR) analysis
+# Example R and Stata code to perform a multivariable Mendelian randomization (MVMR) analysis
 
 ## R code
 

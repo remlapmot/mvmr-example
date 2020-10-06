@@ -177,4 +177,11 @@ if (!requireNamespace("sessioninfo", quietly = TRUE)) install.packages("sessioni
 sessioninfo::session_info()
 ```
 
+## Stata session information for reproducibility
+
+```{stata}
+di c(version)
+github list mrrobust
+```
+
 ## References

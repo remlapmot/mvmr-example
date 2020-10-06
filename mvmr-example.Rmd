@@ -10,6 +10,8 @@ bibliography: references.bib
 ---
 
 ```{r include=FALSE}
+options(width = 100)
+
 suppressPackageStartupMessages({
   if (!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")
   if (!requireNamespace("MendelianRandomization", quietly = TRUE)) install.packages("MendelianRandomization")

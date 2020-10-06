@@ -1,5 +1,5 @@
 ---
-# title: "MVMR example for Supplementary Material"
+title: "MR example for Supplementary Material"
 # author: "Tom Palmer"
 # date: "`r format(Sys.time(), '%d %B %Y')`"
 output:

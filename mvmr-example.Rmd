@@ -18,7 +18,7 @@ suppressPackageStartupMessages({
   if (!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")
   if (!requireNamespace("MendelianRandomization", quietly = TRUE)) install.packages("MendelianRandomization")
   if (!requireNamespace("MVMR", quietly = TRUE)) remotes::install_github("wspiller/mvmr")
-  if (!requireNamespace("Statamarkdown", quietly = TRUE)) remotes::install_github("hemken/statamarkdown")  
+  if (!requireNamespace("Statamarkdown", quietly = TRUE)) remotes::install_github("hemken/statamarkdown")
 })
 ```
 

@@ -5,6 +5,7 @@
 output:
   word_document:
     reference_docx: "custom-reference.docx"
+  html_document: default
 bibliography: references.bib 
 ---
 

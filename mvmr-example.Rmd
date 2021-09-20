@@ -15,18 +15,24 @@ bibliography: references.bib
 options(width = 100)
 
 suppressPackageStartupMessages({
+  
   if (!requireNamespace("remotes", quietly = TRUE))
     install.packages("remotes")
+  
   if (!requireNamespace("tidyverse", quietly = TRUE))
     install.packages("tidyverse")
+  
   if (!requireNamespace("MendelianRandomization", quietly = TRUE))
     install.packages("MendelianRandomization")
+  
   if (!requireNamespace("MVMR", quietly = TRUE))
     remotes::install_github("WSpiller/MVMR")
+  
   if (!requireNamespace("RadialMR", quietly = TRUE))
     remotes::install_github("WSpiller/RadialMR")
+  
   if (!requireNamespace("Statamarkdown", quietly = TRUE))
-    remotes::install_github("hemken/statamarkdown")
+    remotes::install_github("Hemken/Statamarkdown")
 })
 ```
 

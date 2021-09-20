@@ -54,7 +54,6 @@ dat <- dat %>% filter(ldlcp2 < 1e-8)
 * Install the package and load it into memory
 
 ```{r}
-# install.packages("MendelianRandomization") # uncomment on first run
 library(MendelianRandomization)
 ```
 
@@ -94,7 +93,6 @@ mvmreggerfit
 * Install the package and load it into memory
 
 ```{r}
-# remotes::install_github("wspiller/mvmr") # uncomment on first run
 library(MVMR)
 ```
 
@@ -126,7 +124,6 @@ strength_mvmr(r_input)
 
 * Load the Statamarkdown package to enable Stata code chunks in an R Markdown file
 
-# remotes::install_github("hemken/statamarkdown") # uncomment on first run
 ```{r, message=FALSE}
 library(Statamarkdown)
 ```

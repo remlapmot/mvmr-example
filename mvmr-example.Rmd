@@ -126,8 +126,8 @@ strength_mvmr(r_input)
 
 * Load the Statamarkdown package to enable Stata code chunks in an R Markdown file
 
-```{r}
 # remotes::install_github("hemken/statamarkdown") # uncomment on first run
+```{r, message=FALSE}
 library(Statamarkdown)
 ```
 

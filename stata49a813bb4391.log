@@ -1,0 +1,14 @@
+
+
+Running C:\Users\eptmp\Documents\GitHub\mvmr-example\profile.do ...
+
+
+. // Note: output suppressed
+. net install mrrobust, from("https://raw.github.com/remlapmot/mrrobust/master/
+> ")
+checking mrrobust consistency and verifying not already installed...
+all files already exist and are up to date.
+
+. mrdeps
+checking addplot consistency and verifying not already installed...
+all files already exist and are up to date.

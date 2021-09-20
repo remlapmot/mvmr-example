@@ -11,7 +11,7 @@ output:
 bibliography: references.bib 
 ---
 
-```{r include=FALSE}
+```{r include=FALSE, message=FALSE}
 options(width = 100)
 
 suppressPackageStartupMessages({

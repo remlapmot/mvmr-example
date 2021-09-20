@@ -5,7 +5,8 @@ title: "MR example for Supplementary Material"
 output:
   html_document:
     toc: true
-    toc_float: true
+    toc_float:
+      collapsed: false
   word_document:
     reference_docx: "custom-reference.docx"
 bibliography: references.bib 

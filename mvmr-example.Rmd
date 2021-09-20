@@ -33,6 +33,9 @@ suppressPackageStartupMessages({
   
   if (!requireNamespace("Statamarkdown", quietly = TRUE))
     remotes::install_github("Hemken/Statamarkdown")
+  
+  if (!requireNamespace("sessioninfo", quietly = TRUE)) 
+    install.packages("sessioninfo")
 })
 ```
 
@@ -195,9 +198,8 @@ mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1,	orient(3
 ## R session information for reproducibility
 
 ```{r}
-if (!requireNamespace("sessioninfo", quietly = TRUE)) 
-  install.packages("sessioninfo")
-sessioninfo::session_info()
+library(sessioninfo)
+session_info()
 ```
 
 ## Stata session information for reproducibility

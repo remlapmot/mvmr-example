@@ -195,7 +195,7 @@ sessioninfo::session_info()
 
 ```{stata}
 di c(version)
-github list mrrobust
+ado describe mrrobust
 ```
 
 ## References

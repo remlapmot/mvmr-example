@@ -36,6 +36,7 @@ suppressPackageStartupMessages({
   
   if (!requireNamespace("sessioninfo", quietly = TRUE)) 
     install.packages("sessioninfo")
+  
 })
 ```
 

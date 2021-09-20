@@ -187,7 +187,8 @@ mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1, ///
 ## R session information for reproducibility
 
 ```{r}
-if (!requireNamespace("sessioninfo", quietly = TRUE)) install.packages("sessioninfo")
+if (!requireNamespace("sessioninfo", quietly = TRUE)) 
+  install.packages("sessioninfo")
 sessioninfo::session_info()
 ```
 

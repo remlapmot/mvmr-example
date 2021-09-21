@@ -32,6 +32,9 @@ suppressPackageStartupMessages({
   if (!requireNamespace("RadialMR", quietly = TRUE))
     remotes::install_github("WSpiller/RadialMR")
   
+  if (!requireNamespace("RMVMR", quietly = TRUE))
+    remotes::install_github("WSpiller/RMVMR")
+  
   if (!requireNamespace("Statamarkdown", quietly = TRUE))
     remotes::install_github("Hemken/Statamarkdown")
   

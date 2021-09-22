@@ -35,7 +35,7 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# extra files
+# extra files to ignore related to Statamarkdown package
 profile.do
-.log
-.do
+stata*.log
+stata*.do

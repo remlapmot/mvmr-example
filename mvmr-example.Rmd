@@ -128,7 +128,7 @@ r_input <- format_mvmr(
 mvmrfit <- ivw_mvmr(r_input)
 ```
 
-* Heterogeneity statistic
+* Conditional F-statistics for instrument strength [@sanderson-statsmed-2021]
 
 ```{r}
 strength_mvmr(r_input)
@@ -183,7 +183,7 @@ mvmr chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1
 
 * Report the Q<sub>A</sub> statistic for instrument validity and the conditional 
 F-statistics for instrument strength for each phenotype [@sanderson-ije-2019; 
-@sanderson-biorxiv-2020].
+@sanderson-statsmed-2021].
 ```{stata}
 mvmr chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse hdlcse tgse)
 ```

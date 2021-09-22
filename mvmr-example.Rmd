@@ -25,10 +25,7 @@ suppressPackageStartupMessages({
   
   if (!requireNamespace("MendelianRandomization", quietly = TRUE))
     install.packages("MendelianRandomization")
-  
-  if (!requireNamespace("Statamarkdown", quietly = TRUE))
-    remotes::install_github("Hemken/Statamarkdown")
-  
+
   if (!requireNamespace("sessioninfo", quietly = TRUE)) 
     install.packages("sessioninfo")
 
@@ -160,6 +157,9 @@ library(RMVMR)
 * Load the Statamarkdown package to enable Stata code chunks in an R Markdown file
 
 ```{r, message=FALSE}
+if (!requireNamespace("Statamarkdown", quietly = TRUE)) {
+  remotes::install_github("Hemken/Statamarkdown")
+}
 library(Statamarkdown)
 ```
 

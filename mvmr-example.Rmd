@@ -168,8 +168,8 @@ head(pleio_rmvmr$qdat)
 
 ```{r}
 str_rmvmr <- strength_rmvmr(rmvmr_input)
-str_rmvmr$plot[[1]]
-str_rmvmr$stat[[2]]
+str_rmvmr$plot[[2]]
+str_rmvmr$qstat[[2]]
 ```
 
 ## Stata code

@@ -26,9 +26,6 @@ suppressPackageStartupMessages({
   if (!requireNamespace("MendelianRandomization", quietly = TRUE))
     install.packages("MendelianRandomization")
   
-  if (!requireNamespace("RadialMR", quietly = TRUE))
-    remotes::install_github("WSpiller/RadialMR")
-  
   if (!requireNamespace("RMVMR", quietly = TRUE))
     remotes::install_github("WSpiller/RMVMR")
   
@@ -143,6 +140,14 @@ mvmrfit <- ivw_mvmr(r_input)
 strength_mvmr(r_input)
 ```
 
+* Fit a radial IVW model
+
+```{r}
+if (!requireNamespace("RadialMR", quietly = TRUE)) {
+  remotes::install_github("WSpiller/RadialMR")
+}
+library(RadialMR)
+```
 ## Stata code
 
 * Load the Statamarkdown package to enable Stata code chunks in an R Markdown file

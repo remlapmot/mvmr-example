@@ -99,7 +99,7 @@ mvmreggerfit <- mr_mvegger(datfmt)
 mvmreggerfit
 ```
 
-### Example code using the MVMR package
+### Example code using the MVMR and RMVMR packages
 
 * Install the package and load it into memory
 

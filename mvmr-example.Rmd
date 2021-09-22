@@ -141,6 +141,35 @@ if (!requireNamespace("RMVMR", quietly = TRUE)) {
   remotes::install_github("WSpiller/RMVMR")
 }
 library(RMVMR)
+
+rmvmr_input <- mrmvinput_to_rmvmr_format(datfmt)
+
+rmvmr_fit <- ivw_rmvmr(rmvmr_input, summary = TRUE)
+rmvmr_fit
+```
+
+* Plot the radial MVMR models
+
+```{r}
+plt_rmvmr <- plot_rmvmr(rmvmr_input, rmvmr = rmvmr_fit)
+plt_rmvmr$p1
+plt_rmvmr$p2
+```
+
+* Heterogeneity statistics
+
+```{r}
+pleio_rmvmr <- pleiotropy_rmvmr(rmvmr_input, rmvmr = rmvmr_fit)
+pleio_rmvmr$gq
+head(pleio_rmvmr$qdat)
+```
+
+* Conditional F-statistics for instrument strength [@sanderson-statsmed-2021]
+
+```{r}
+str_rmvmr <- strength_rmvmr(rmvmr_input)
+str_rmvmr$plot[[1]]
+str_rmvmr$stat[[2]]
 ```
 
 ## Stata code

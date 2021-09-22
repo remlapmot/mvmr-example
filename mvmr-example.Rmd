@@ -134,15 +134,6 @@ mvmrfit <- ivw_mvmr(r_input)
 strength_mvmr(r_input)
 ```
 
-* Fit a radial IVW model
-
-```{r}
-if (!requireNamespace("RadialMR", quietly = TRUE)) {
-  remotes::install_github("WSpiller/RadialMR")
-}
-library(RadialMR)
-```
-
 * Fit a radial MVMR model
 
 ```{r}

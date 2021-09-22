@@ -223,7 +223,7 @@ session_info()
 ## Stata session information for reproducibility
 
 ```{stata}
-di c(version)
+about
 ado describe mrrobust
 ```
 

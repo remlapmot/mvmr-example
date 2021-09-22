@@ -66,6 +66,7 @@ suppressPackageStartupMessages({
 suppressPackageStartupMessages({
   library(tidyverse)
   library(haven)
+  library(remotes)
 })
 dat <- read_dta("https://raw.github.com/remlapmot/mrrobust/master/dodata.dta")
 dat <- dat %>% filter(ldlcp2 < 1e-8)

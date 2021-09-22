@@ -145,7 +145,7 @@ library(RMVMR)
 rmvmr_input <- mrmvinput_to_rmvmr_format(datfmt)
 
 rmvmr_fit <- ivw_rmvmr(rmvmr_input, summary = TRUE)
-rmvmr_fit
+rmvmr_fit$coef
 ```
 
 * Plot the radial MVMR models

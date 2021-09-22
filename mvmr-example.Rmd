@@ -26,9 +26,6 @@ suppressPackageStartupMessages({
   if (!requireNamespace("MendelianRandomization", quietly = TRUE))
     install.packages("MendelianRandomization")
   
-  if (!requireNamespace("MVMR", quietly = TRUE))
-    remotes::install_github("WSpiller/MVMR")
-  
   if (!requireNamespace("RadialMR", quietly = TRUE))
     remotes::install_github("WSpiller/RadialMR")
   
@@ -116,6 +113,9 @@ mvmreggerfit
 * Install the package and load it into memory
 
 ```{r}
+if (!requireNamespace("MVMR", quietly = TRUE)) {
+  remotes::install_github("WSpiller/MVMR")
+}
 library(MVMR)
 ```
 

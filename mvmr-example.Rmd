@@ -185,7 +185,7 @@ library(Statamarkdown)
 
 * Read in the data and create an indicator variable to select observations with *p*-value between the genotype and LDL-C < 10<sup>-8</sup>
 
-```{stata, collectcode=TRUE}
+```{stata, collectcode=TRUE, results=FALSE}
 use https://raw.github.com/remlapmot/mrrobust/master/dodata, clear
 gen byte sel1 = (ldlcp2 < 1e-8)
 ```
@@ -214,7 +214,7 @@ mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse) heterogi
 
 * Simple plot of IVW and MR-Egger univariate estimates
 
-```{stata}
+```{stata results=FALSE}
 mreggerplot chdbeta chdse ldlcbeta ldlcse if sel1==1
 qui gr export mreggerplot-1.png, replace
 ```

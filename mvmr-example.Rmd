@@ -194,7 +194,7 @@ gen byte sel1 = (ldlcp2 < 1e-8)
 
 * Install the mrrobust package using the github package
 
-```{stata results=FALSE}
+```{stata results=FALSE, eval=FALSE}
 // Note: output suppressed
 net install mrrobust, from("https://raw.github.com/remlapmot/mrrobust/master/")
 mrdeps

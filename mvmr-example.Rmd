@@ -40,8 +40,6 @@ suppressPackageStartupMessages({
 ```{r include=FALSE}
 require("Hmisc")
 ```
-
-# Example R and Stata code to perform a multivariable Mendelian randomization (MVMR) analysis
 `r Hmisc::hidingTOC(levels = 2)`
 
 ## R code

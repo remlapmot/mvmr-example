@@ -39,3 +39,6 @@ vignettes/*.pdf
 profile.do
 stata*.log
 stata*.do
+
+*_files/
+mreggerplot-*.png

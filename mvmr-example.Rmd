@@ -136,7 +136,7 @@ strength_mvmr(r_input)
 
 * Fit a radial MVMR model
 
-```{r cache=TRUE}
+```{r}
 if (!requireNamespace("RMVMR", quietly = TRUE)) {
   remotes::install_github("WSpiller/RMVMR")
 }
@@ -150,7 +150,7 @@ rmvmr_fit$coef
 
 * Plot the radial MVMR models
 
-```{r cache=TRUE}
+```{r}
 plt_rmvmr <- plot_rmvmr(rmvmr_input, rmvmr = rmvmr_fit)
 plt_rmvmr$p1
 plt_rmvmr$p2
@@ -166,7 +166,7 @@ head(pleio_rmvmr$qdat)
 
 * Conditional F-statistics for instrument strength [@sanderson-statsmed-2021]
 
-```{r cache=TRUE}
+```{r}
 str_rmvmr <- strength_rmvmr(rmvmr_input)
 str_rmvmr$plot[[2]]
 str_rmvmr$qstat[[2]]

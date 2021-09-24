@@ -200,6 +200,11 @@ net install mrrobust, from("https://raw.github.com/remlapmot/mrrobust/master/")
 mrdeps
 ```
 
+* Fit IVW (with fixed effect standard errors)
+
+```{stata}
+mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe
+```
 * Fit and MVMR model with phenotypes LDL-c and HDL-c [@burgess-aje-2015].
 ```{stata}
 mvmr chdbeta ldlcbeta hdlcbeta [aw=1/(chdse^2)] if sel1==1

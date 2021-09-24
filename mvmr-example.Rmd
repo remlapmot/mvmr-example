@@ -7,6 +7,11 @@ output:
     toc: true
     toc_float:
       collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    code_download: true
+    code_folding: show
+    anchor_sections: true
   word_document:
     reference_docx: "custom-reference.docx"
 bibliography: references.bib 

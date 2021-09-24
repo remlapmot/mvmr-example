@@ -150,7 +150,7 @@ rmvmr_fit$coef
 
 * Plot the radial MVMR models
 
-```{r}
+```{r, out.width="50%"}
 plt_rmvmr <- plot_rmvmr(rmvmr_input, rmvmr = rmvmr_fit)
 plt_rmvmr$p1
 plt_rmvmr$p2
@@ -166,7 +166,7 @@ head(pleio_rmvmr$qdat)
 
 * Conditional F-statistics for instrument strength [@sanderson-statsmed-2021]
 
-```{r}
+```{r, out.width="50%"}
 str_rmvmr <- strength_rmvmr(rmvmr_input)
 str_rmvmr$plot[[2]]
 str_rmvmr$qstat[[2]]
@@ -219,7 +219,7 @@ mreggerplot chdbeta chdse ldlcbeta ldlcse if sel1==1
 qui gr export mreggerplot-1.png, replace
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="75%"}
 knitr::include_graphics("mreggerplot-1.png")
 ```
 
@@ -240,7 +240,7 @@ addplot : function _b[beta]*x if sel1==1, ///
 qui gr export mreggerplot-2.png, replace
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="75%"}
 knitr::include_graphics("mreggerplot-2.png")
 ```
 

@@ -8,7 +8,7 @@ output:
     toc_float:
       collapsed: false
       smooth_scroll: false
-    toc_depth: 2
+    toc_depth: 3
     code_download: true
     code_folding: show
     anchor_sections: true
@@ -40,7 +40,7 @@ suppressPackageStartupMessages({
 ```{r include=FALSE}
 require("Hmisc")
 ```
-`r Hmisc::hidingTOC(levels = 2)`
+`r Hmisc::hidingTOC(levels = 3)`
 
 ## R code
 
@@ -273,14 +273,16 @@ Or we can orient the model with respect to triglycerides.
 mrmvegger chdbeta ldlcbeta hdlcbeta tgbeta [aw=1/(chdse^2)] if sel1==1,	orient(3)
 ```
 
-## R session information for reproducibility
+## Session information for reproducibility
+
+### R session information
 
 ```{r}
 library(sessioninfo)
 session_info()
 ```
 
-## Stata session information for reproducibility
+### Stata session information
 
 ```{stata}
 about

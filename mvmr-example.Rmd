@@ -228,7 +228,7 @@ addplot : function _b[beta]*x if sel1==1, ///
 mrmodal chdbeta chdse ldlcbeta ldlcse if sel1==1, phi(.25)
 addplot : function _b[beta]*x if sel1==1, ///
   range(0 0.5) lc(gs0) lp(longdash) ///
-  legend(order(5 "Instruments"
+  legend(order(5 "Instruments" ///
                4 "95% CIs" 3 "MR-Egger" 2 "MR-Egger 95% CI" ///
                6 "Weighted median" 7 "Modal") ///
         rows(1) si(vsmall) symx(*.5))

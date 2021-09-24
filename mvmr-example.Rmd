@@ -32,19 +32,12 @@ suppressPackageStartupMessages({
 })
 ```
 
-<!-- Move TOC to RHS -->
-```{css toc-content, echo = FALSE}
-#TOC {
-  right: 270px;
-  margin: 20px 0px 25px 0px;
-}
-
-.main-container {
-    margin-left: 200px;
-}
+```{r include=FALSE}
+require("Hmisc")
 ```
 
 # Example R and Stata code to perform a multivariable Mendelian randomization (MVMR) analysis
+`r Hmisc::hidingTOC(levels = 2)`
 
 ## R code
 

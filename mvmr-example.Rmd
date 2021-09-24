@@ -216,6 +216,11 @@ mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse) heterogi
 
 ```{stata}
 mreggerplot chdbeta chdse ldlcbeta ldlcse if sel1==1
+qui gr export mreggerplot-1.png, replace
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("mreggerplot-1.png")
 ```
 
 * Adding the modal and median estimates onto the plot
@@ -232,6 +237,11 @@ addplot : function _b[beta]*x if sel1==1, ///
                4 "95% CIs" 3 "MR-Egger" 2 "MR-Egger 95% CI" ///
                6 "Weighted median" 7 "Modal") ///
         rows(1) si(vsmall) symx(*.5))
+qui gr export mreggerplot-2.png, replace
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("mreggerplot-2.png")
 ```
 
 * Fit and MVMR model with phenotypes LDL-c and HDL-c [@burgess-aje-2015].

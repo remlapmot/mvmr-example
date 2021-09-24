@@ -211,6 +211,12 @@ mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, ivw fe
 ```{stata}
 mregger chdbeta ldlcbeta [aw=1/(chdse^2)] if sel1==1, gxse(ldlcse) heterogi
 ```
+
+* Simple plot of IVW and MR-Egger univariate estimates
+
+```{stata}
+mreggerplot chdbeta chdse ldlcbeta ldlcse if sel1==1
+```
 * Fit and MVMR model with phenotypes LDL-c and HDL-c [@burgess-aje-2015].
 ```{stata}
 mvmr chdbeta ldlcbeta hdlcbeta [aw=1/(chdse^2)] if sel1==1

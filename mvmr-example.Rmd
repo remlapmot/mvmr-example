@@ -16,10 +16,12 @@ output:
   word_document:
     reference_docx: "custom-reference.docx"
     highlight: arrow
-    toc: false
+    toc: FALSE
+    pandoc_args: --shift-heading-level-by=-1
   pdf_document:
-    toc: false
+    toc: FALSE
     highlight: arrow
+    pandoc_args: --shift-heading-level-by=-1
 bibliography: references.bib
 papersize: a4
 ---
@@ -54,7 +56,7 @@ knitr::opts_chunk$set(
 ```{r include=FALSE}
 require("Hmisc")
 ```
-`r Hmisc::hidingTOC(levels = 3)`
+`r if (knitr::is_html_output()) Hmisc::hidingTOC(levels = 3)`
 
 ## R code
 
